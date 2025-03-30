@@ -4,32 +4,26 @@ The different paging and disk scheduling algorithms :
 ## Paging : 
 <ul>
   <li>
-    ### FIFO : 
-    First In First Out
+    FIFO : First In First Out
   </li>
   <li>
-    ### LRU : 
-    Least Recently Used
+    LRU : Least Recently Used
   </li>
   <li>
-    ### LFU : 
-    Least Frequently Used
+    LFU : Least Frequently Used
   </li>
 </ul>
 <br>
 ## Disk Scheduling : 
 <ul>
   <li>
-    ### FCSFS : 
-    First Come First Serve
+    FCSFS : First Come First Serve
   </li>
   <li>
-    ### SCAN : 
-    Shortest Consecutive Access Next (or Elevator Algorithm)
+    SCAN : Shortest Consecutive Access Next (or Elevator Algorithm)
   </li>
   <li>
-    ### C-SCAN : 
-    Circular Shortest Consecutive Access Next (or Circular Elevator Algorithm)
+    C-SCAN : Circular Shortest Consecutive Access Next (or Circular Elevator Algorithm)
   </li>
 </ul>
 <br>
