@@ -55,11 +55,10 @@ void FIFO()
 
 void LRU()
 {
-	int Faults = 0, Hit = 0, time[MAX_FRAMES], leastUsed;
+	int Faults = 0, Hit = 0, time[MAX_FRAMES] = {0}, leastUsed;
 	for (int i=0; i<f; i++)
 	{
 		frames[i] = -1;
-		time[i] = 0;
 	}
 	
 	for (int i=0; i<p; i++)
@@ -113,12 +112,10 @@ void LRU()
 
 void LFU()
 {
-	int Faults = 0, Hit = 0, freq[MAX_FRAMES], time[MAX_FRAMES];
+	int Faults = 0, Hit = 0, freq[MAX_FRAMES] = {0}, time[MAX_FRAMES] = {0};
 	for (int i=0; i<f; i++)
 	{
 		frames[i] = -1;
-		freq[i] = 0;
-		time[i] = 0;
 	}
 	
 	for (int i=0; i<p; i++)
