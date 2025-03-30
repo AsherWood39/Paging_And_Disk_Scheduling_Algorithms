@@ -57,9 +57,7 @@ void LRU()
 {
 	int Faults = 0, Hit = 0, time[MAX_FRAMES] = {0}, leastUsed;
 	for (int i=0; i<f; i++)
-	{
 		frames[i] = -1;
-	}
 	
 	for (int i=0; i<p; i++)
 	{
@@ -114,9 +112,7 @@ void LFU()
 {
 	int Faults = 0, Hit = 0, freq[MAX_FRAMES] = {0}, time[MAX_FRAMES] = {0};
 	for (int i=0; i<f; i++)
-	{
 		frames[i] = -1;
-	}
 	
 	for (int i=0; i<p; i++)
 	{
