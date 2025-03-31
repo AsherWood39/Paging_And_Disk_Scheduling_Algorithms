@@ -9,7 +9,7 @@ int requests[MAX_REQUESTS], n, direction, disk_size;
 // FCFS Disk Scheduling
 void FCFS(int head) 
 {
-    printf("\nFCFS Disk Scheduling:\nOrder of requests: ");
+    printf("\nFCFS Disk Scheduling :\nRequest sequence : ");
     printf("%d ", head);
     for (int i = 0; i < n; i++) 
     {
@@ -30,7 +30,7 @@ void SCAN(int head)
 {
     int movement = 0;
 
-    printf("\nSCAN Disk Scheduling:\nFull request sequence: ");
+    printf("\nSCAN Disk Scheduling :\nRequest sequence : ");
 
     if (direction == 1) 
     { // Moving right
@@ -46,7 +46,7 @@ void SCAN(int head)
         }
 
         // Move right through remaining requests
-        for (int i = start; i < n; i++) 
+        for (int i = start + 1; i < n; i++) 
         {
             printf("-> %d ", requests[i]);
             movement += abs(head - requests[i]);
@@ -116,7 +116,7 @@ void C_SCAN(int head)
 {
     int movement = 0;
 
-    printf("\nC-SCAN Disk Scheduling:\nFull request sequence: ");
+    printf("\nC-SCAN Disk Scheduling :\nRequest sequence : ");
 
     if (direction == 1) 
     { // Moving right
@@ -212,8 +212,7 @@ void C_SCAN(int head)
 
 int main() 
 {
-    int temp[MAX_REQUESTS], head;
-
+    int head;
     printf("Enter the number of disk requests : ");
     scanf("%d", &n);
 
@@ -255,11 +254,9 @@ int main()
     }
 
     // SCAN
-    memcpy(temp, requests, sizeof(int) * n);
     SCAN(head);
 
     // C-SCAN
-    memcpy(temp, requests, sizeof(int) * n);
     C_SCAN(head);
 
     return 0;
