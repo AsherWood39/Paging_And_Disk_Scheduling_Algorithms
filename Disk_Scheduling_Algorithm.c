@@ -210,6 +210,145 @@ void C_SCAN(int head)
     printf("\nTotal head movement: %d\n", movement);
 }
 
+// LOOK Disk Scheduling with full sequence printing
+void LOOK(int head) 
+{
+    int movement = 0;
+
+    printf("\nLOOK Disk Scheduling :\nRequest sequence : ");
+
+    if (direction == 1) 
+    {   // Moving right
+        int start = 0;
+        while (start < n && requests[start] < head) start++;
+
+        // Print movement to first request
+        if (start < n) 
+        {
+            printf("%d -> %d ", head, requests[start]);
+            movement += abs(head - requests[start]);
+            head = requests[start];
+        }
+
+        // Move right through remaining requests
+        for (int i = start + 1; i < n; i++) 
+        {
+            printf("-> %d ", requests[i]);
+            movement += abs(head - requests[i]);
+            head = requests[i];
+        }
+
+        // Move left through remaining requests
+        for (int i = start - 1; i >= 0; i--) 
+        {
+            printf("-> %d ", requests[i]);
+            movement += abs(head - requests[i]);
+            head = requests[i];
+        }
+    } 
+
+    else 
+    {   // Moving left
+        int start = n - 1;
+        while (start >= 0 && requests[start] > head) start--;
+
+        // Print movement to first request
+        if (start >= 0) 
+        {
+            printf("%d -> %d ", head, requests[start]);
+            movement += abs(head - requests[start]);
+            head = requests[start];
+        }
+
+        // Move left through remaining requests
+        for (int i = start - 1; i >= 0; i--) 
+        {
+            printf("-> %d ", requests[i]);
+            movement += abs(head - requests[i]);
+            head = requests[i];
+        }
+        
+        // Move right through remaining requests
+        for (int i = start + 1; i < n; i++) 
+        {
+            printf("-> %d ", requests[i]);
+            movement += abs(head - requests[i]);
+            head = requests[i];
+        }
+    }
+
+    printf("\nTotal head movement: %d\n", movement);
+}
+
+// C-LOOK Disk Scheduling with full sequence printing
+void C_LOOK(int head) 
+{
+    int movement = 0;
+
+    printf("\nC-LOOK Disk Scheduling :\nRequest sequence : ");
+
+    if (direction == 1) 
+    { // Moving right
+        int start = 0;
+        while (start < n && requests[start] < head) start++;
+
+        // Print movement to first request
+        if (start < n) 
+        {
+            printf("%d -> %d ", head, requests[start]);
+            movement += abs(head - requests[start]);
+            head = requests[start];
+        }
+
+        // Move right through remaining requests
+        for (int i = start + 1; i < n; i++) 
+        {
+            printf("-> %d ", requests[i]);
+            movement += abs(head - requests[i]);
+            head = requests[i];
+        }
+
+        // Move right through remaining requests
+        for (int i = 0; i < start; i++) 
+        {
+            printf("-> %d ", requests[i]);
+            movement += abs(head - requests[i]);
+            head = requests[i];
+        }
+    } 
+
+    else 
+    { // Moving left
+        int start = n - 1;
+        while (start >= 0 && requests[start] > head) start--;
+
+        // Print movement to first request
+        if (start >= 0) 
+        {
+            printf("%d -> %d ", head, requests[start]);
+            movement += abs(head - requests[start]);
+            head = requests[start];
+        }
+
+        // Move left through remaining requests
+        for (int i = start - 1; i >= 0; i--) 
+        {
+            printf("-> %d ", requests[i]);
+            movement += abs(head - requests[i]);
+            head = requests[i];
+        }
+
+        // Move left through remaining requests
+        for (int i = n - 1; i > start; i--) 
+        {
+            printf("-> %d ", requests[i]);
+            movement += abs(head - requests[i]);
+            head = requests[i];
+        }
+    }
+
+    printf("\nTotal head movement: %d\n", movement);
+}
 int main() 
 {
     int head;
@@ -258,6 +397,12 @@ int main()
 
     // C-SCAN
     C_SCAN(head);
+
+    // LOOK
+    LOOK(head);
+
+    // C-LOOK
+    C_LOOK(head);
 
     return 0;
 }
